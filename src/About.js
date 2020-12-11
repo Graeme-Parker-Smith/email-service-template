@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './styles.css';
 
 export default () => {
@@ -14,6 +15,9 @@ export default () => {
 		alert(
 			`New message from your website -- First Name: ${state.firstName}, Last Name: ${state.lastName}, message: ${state.message}`
 		);
+		axios.post('/sendemail', { ...state }).then((response) => {
+			this.setState({ users: response.data });
+		});
 		e.preventDefault();
 	};
 

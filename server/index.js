@@ -33,6 +33,7 @@ app.use((req, res, next) => {
 
 app.post('/sendemail', (req, res) => {
 	try {
+		console.log('req.body is: ', req.body);
 		const { firstName, lastName, message } = req.body;
 		if (!message) throw 'could not send email';
 		transporter.sendMail(
