@@ -4,6 +4,9 @@ const app = express(); // create express app
 require('dotenv').config();
 const morgan = require('morgan');
 const nodemailer = require('nodemailer');
+const http = require("http")
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 let localTransporter;
 let localMailOptions;
@@ -22,16 +25,21 @@ const transporter =
 	});
 
 // add middleware
+app.use(cors());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.use((req, res, next) => {
-	res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+
+
+app.get('/test', (req, res) => {
+	console.log('test route activated');
 });
 
 app.post('/sendemail', (req, res) => {
+	console.log('sendemail request received.');
 	try {
 		console.log('req.body is: ', req.body);
 		const { firstName, lastName, message } = req.body;
@@ -55,6 +63,10 @@ app.post('/sendemail', (req, res) => {
 		console.log(err);
 		return res.status(422).send({ error: 'could not send email' });
 	}
+});
+
+app.use((req, res, next) => {
+	res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
 
 // start express server on port 5000
