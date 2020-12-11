@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const app = express(); // create express app
 require('dotenv').config();
-const morgan = require('morgan');
 const nodemailer = require('nodemailer');
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -30,7 +29,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
-app.use(morgan('dev'));
 app.use(express.json());
 
 app.get('/test', (req, res) => {
