@@ -1,0 +1,162 @@
+body {
+    font-size: 20px;
+  }
+  
+  .users {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .user {
+    padding: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .user > div {
+    margin-top: 1rem;
+    color: #ccc;
+  }
+
+  /* contact styles */
+
+  
+
+.contact-page h1 {
+	letter-spacing: 0.4rem;
+	font-weight: 400;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.contact-page h1,
+.contact-page h2 {
+	text-align: center;
+	/* transform: scale(0,1); */
+	/* animation: expandWidth 0.6s ease-in-out 0s forwards; */
+
+}
+
+#contact-main-content-container {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+#contact-information-container {
+	text-align: center;
+	margin: 0 auto;
+}
+#contact-information-container span {
+	margin: 10px;
+}
+#contact-information-container div {
+	margin: 20px 0;
+}
+.inline-icon-with-text {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.contact-card {
+	box-sizing: border-box;
+	width: 500px;
+	max-width: 80vw;
+	/* min-width: 388px; */
+	/* width: 80%; */
+	background-color: #f6f6f6;
+	color: #000;
+	margin: 0 auto;
+	margin-bottom: 60px;
+	padding: 15px;
+	box-shadow: 0 17px 10px rgba(0, 0, 0, 0.7);
+}
+.contact-card h1 {
+	color: #af3034;
+	text-align: center;
+	font-weight: 400;
+}
+.contact-card h2 {
+	font-size: 24px;
+	line-height: 27px;
+	color: rgba(40, 52, 65, 1);
+}
+.contact-form-container {
+	margin: 0 auto;
+	/* max-width: 418px; */
+}
+.contact-form-container h2 {
+	color: rgba(40, 52, 65, 1);
+	text-align: center;
+	margin-bottom: 25px;
+}
+.contact-form-container input {
+	margin: 10px 10px 10px 0;
+	font-size: 16px;
+	max-width: 95%;
+}
+#comment {
+	height: 100px;
+	width: 95%;
+	overflow-x: hidden;
+	resize: none;
+	margin: 10px 10px 10px 0;
+	font-size: 16px;
+}
+
+.names-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.names-container-label {
+	flex: 0 100%;
+}
+.names-container-label > span:nth-child(2) {
+	color: rgba(40, 52, 65, 1);
+}
+#email {
+	width: 100%;
+}
+.phone-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+#area-code {
+	width: 50px;
+}
+#number {
+	width: 128px;
+}
+.phone-container > div:nth-child(3) {
+	/* text-align: center; */
+	/* align-self: center; */
+	margin: 0px 10px 5px 10px;
+}
+/* .names-container>div {
+    flex: 0 50%;
+} */
+
+.mini-label {
+	font-size: 10px;
+	color: #8a8a8a;
+}
+
+
+
+.preference {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.preference > span,
+.preference label {
+	margin-right: 20px;
+}
+
+.submit {
+	margin: 20px;
+}
+
+
