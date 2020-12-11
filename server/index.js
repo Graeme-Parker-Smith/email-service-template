@@ -4,7 +4,7 @@ const app = express(); // create express app
 require('dotenv').config();
 const morgan = require('morgan');
 const nodemailer = require('nodemailer');
-const http = require("http")
+const http = require('http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -12,6 +12,7 @@ let localTransporter;
 let localMailOptions;
 localTransporter = require('./email').transporter;
 localMailOptions = require('./email').mailOptions;
+let mailTo = require('./email').mailTo;
 // const transporter = process.env.TRANSPORTER || localTransporter;
 const email = process.env.EMAIL || localMailOptions;
 const transporter =
@@ -32,8 +33,6 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(express.json());
 
-
-
 app.get('/test', (req, res) => {
 	console.log('test route activated');
 });
@@ -47,7 +46,7 @@ app.post('/sendemail', (req, res) => {
 		transporter.sendMail(
 			{
 				from: email,
-				to: email,
+				to: mailTo,
 				subject: `New message from Website visitor`,
 				text: `First Name: ${firstName}, Last Name: ${lastName}, message: ${message}`,
 			},
