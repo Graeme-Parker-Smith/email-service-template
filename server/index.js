@@ -9,11 +9,13 @@ const cors = require('cors');
 
 let localTransporter;
 let localMailOptions;
+let localMailTo;
 localTransporter = require('./email').transporter;
 localMailOptions = require('./email').mailOptions;
-let mailTo = require('./email').mailTo;
+localMailTo = require('./email').mailTo;
 // const transporter = process.env.TRANSPORTER || localTransporter;
 const email = process.env.EMAIL || localMailOptions;
+const mailTo = process.env.MAILTO || localMailTo
 const transporter =
 	localTransporter ||
 	nodemailer.createTransport({
@@ -67,6 +69,7 @@ app.use((req, res, next) => {
 });
 
 // start express server on port 5000
-app.listen(5000, () => {
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
 	console.log('server started on port 5000');
 });
