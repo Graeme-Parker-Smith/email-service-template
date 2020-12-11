@@ -8,16 +8,14 @@ export default () => {
 		const target = e.target;
 		const name = target.name;
 		setState({ ...state, [name]: e.target.value });
-		console.log(state);
 	};
 
 	const handleSubmit = (e) => {
-		alert(
-			`New message from your website -- First Name: ${state.firstName}, Last Name: ${state.lastName}, message: ${state.message}`
-		);
-		axios.post('/sendemail', { ...state }).then((response) => {
-			this.setState({ users: response.data });
-		});
+		axios
+			.post("http://localhost:5000/sendemail", { ...state }, { headers: { 'Content-type': 'application/json; charset=UTF-8' } })
+			.then((response) => {
+				console.log('response received');
+			});
 		e.preventDefault();
 	};
 
