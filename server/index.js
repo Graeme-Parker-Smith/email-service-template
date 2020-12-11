@@ -10,9 +10,9 @@ const cors = require('cors');
 let localTransporter;
 let localMailOptions;
 let localMailTo;
-localTransporter = require('./email').transporter;
-localMailOptions = require('./email').mailOptions;
-localMailTo = require('./email').mailTo;
+// localTransporter = require('./email').transporter;
+// localMailOptions = require('./email').mailOptions;
+// localMailTo = require('./email').mailTo;
 // const transporter = process.env.TRANSPORTER || localTransporter;
 const email = process.env.EMAIL || localMailOptions;
 const mailTo = process.env.MAILTO || localMailTo
