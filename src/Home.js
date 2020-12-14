@@ -20,21 +20,8 @@ export default class App extends React.Component {
 		}
 		return (
 			<div>
-				<ul className="users">
-					{users.map((user) => (
-						<li className="user">
-							<p>
-								<strong>Name:</strong> {user.name}
-							</p>
-							<p>
-								<strong>Email:</strong> {user.email}
-							</p>
-							<p>
-								<strong>City:</strong> {user.address.city}
-							</p>
-						</li>
-					))}
-				</ul>
+			Home Sweet Home 
+			<a href="/about">To About</a>
 			</div>
 		);
 	}

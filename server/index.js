@@ -25,6 +25,7 @@ const transporter =
 			pass: process.env.MAILPASS,
 		},
 	});
+	console.log("transporter is: ", transporter)
 
 // add middleware
 app.use(cors());
