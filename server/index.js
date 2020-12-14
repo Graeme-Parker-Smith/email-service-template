@@ -15,7 +15,7 @@ let localMailTo;
 // localMailOptions = require('./email').mailOptions;
 // localMailTo = require('./email').mailTo;
 const email = process.env.EMAIL || localMailOptions;
-const mailTo = process.env.MAILTO || localMailTo
+const mailTo = process.env.MAILTO || localMailTo;
 const transporter =
 	localTransporter ||
 	nodemailer.createTransport({
@@ -25,18 +25,13 @@ const transporter =
 			pass: process.env.MAILPASS,
 		},
 	});
-	console.log("transporter is: ", transporter)
+console.log('transporter is: ', transporter);
 
 // add middleware
-app.use(cors());
-app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '..', 'build')));
-app.use(express.static('public'));
-app.use(express.json());
 
 app.get('/api/test', (req, res) => {
 	console.log('test route activated');
-	res.send("you got the test route");
+	res.send('you got the test route');
 });
 
 app.post('/api/sendemail', (req, res) => {
@@ -65,6 +60,11 @@ app.post('/api/sendemail', (req, res) => {
 		return res.status(422).send({ error: 'could not send email' });
 	}
 });
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '..', 'build')));
+app.use(express.static('public'));
 
 app.use((req, res, next) => {
 	res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
