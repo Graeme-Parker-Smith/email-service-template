@@ -12,11 +12,17 @@ export default () => {
 
 	const handleSubmit = (e) => {
 		axios
-			.post("/sendemail", { ...state }, { headers: { 'Content-type': 'application/json; charset=UTF-8' } })
+			.post('/sendemail', { ...state }, { headers: { 'Content-type': 'application/json; charset=UTF-8' } })
 			.then((response) => {
 				console.log('response received', response);
 			});
 		e.preventDefault();
+	};
+
+	const handleClick = (e) => {
+		axios.get('/test').then((response) => {
+			console.log('response received', response);
+		});
 	};
 
 	return (
@@ -54,6 +60,7 @@ export default () => {
 				</form>
 				<div className="submit">{/* <button>submit</button>
 					<button>reset</button> */}</div>
+				<button onClick={handleClick}>test</button>
 			</div>
 		</div>
 	);

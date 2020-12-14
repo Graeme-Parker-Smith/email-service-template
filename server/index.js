@@ -36,6 +36,7 @@ app.use(express.json());
 
 app.get('/test', (req, res) => {
 	console.log('test route activated');
+	res.send("you got the test route");
 });
 
 app.post('/sendemail', (req, res) => {
