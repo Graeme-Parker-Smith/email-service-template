@@ -25,15 +25,15 @@ function App() {
 		return (
 			<div>
 				<Suspense fallback={<div>Loading...</div>}>
-					<Switch>
-						<Route exact path="/about">
+					{/* <Switch> */}
 							<About />
+						{/* <Route exact path="/about">
 						</Route>
 
 						<Route exact path="/">
 							<Home />
 						</Route>
-					</Switch>
+					</Switch> */}
 				</Suspense>
 			</div>
 		);
