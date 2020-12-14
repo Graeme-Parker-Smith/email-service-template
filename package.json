@@ -20,6 +20,7 @@
     "eject": "react-scripts eject",
     "start": "yarn run build && (cd server && yarn start)"
   },
+  "proxy": "https://safe-springs-50135.herokuapp.com",
   "browserslist": {
     "production": [
       ">0.2%",
