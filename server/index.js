@@ -64,11 +64,11 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'build')));
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
-app.use((req, res, next) => {
-	res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
-});
+// app.use((req, res, next) => {
+// 	res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+// });
 
 // start express server on port 5000
 const PORT = process.env.PORT || 5000;
