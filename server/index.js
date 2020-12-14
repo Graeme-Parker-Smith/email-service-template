@@ -34,12 +34,12 @@ app.use(express.static(path.join(__dirname, '..', 'build')));
 app.use(express.static('public'));
 app.use(express.json());
 
-app.get('/test', (req, res) => {
+app.get('/api/test', (req, res) => {
 	console.log('test route activated');
 	res.send("you got the test route");
 });
 
-app.post('/sendemail', (req, res) => {
+app.post('/api/sendemail', (req, res) => {
 	console.log('sendemail request received.');
 	try {
 		console.log('req.body is: ', req.body);

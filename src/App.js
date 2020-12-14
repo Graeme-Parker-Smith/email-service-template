@@ -17,21 +17,27 @@ const About = lazy(() => import('./About'));
 // import Colors from './screens/Colors/Colors';
 
 function App() {
-	return (
-		<div>
-			<Suspense fallback={<div>Loading...</div>}>
-				<Switch>
-					<Route exact path="/about">
-						<About />
-					</Route>
+	const api_regex = /^\/api\/.*/;
+	// if using "/api/" in the pathname, don't use React Router
+	if (api_regex.test(window.location.pathname)) {
+		return <div />; // must return at least an empty div
+	} else {
+		return (
+			<div>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Switch>
+						<Route exact path="/about">
+							<About />
+						</Route>
 
-					<Route path="/">
-						<Home />
-					</Route>
-				</Switch>
-			</Suspense>
-		</div>
-	);
+						<Route path="/">
+							<Home />
+						</Route>
+					</Switch>
+				</Suspense>
+			</div>
+		);
+	}
 }
 
 export default App;

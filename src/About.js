@@ -12,7 +12,7 @@ export default () => {
 
 	const handleSubmit = (e) => {
 		axios
-			.post('/sendemail', { ...state }, { headers: { 'Content-type': 'application/json; charset=UTF-8' } })
+			.post('/api/sendemail', { ...state }, { headers: { 'Content-type': 'application/json; charset=UTF-8' } })
 			.then((response) => {
 				console.log('response received', response);
 			});
@@ -20,7 +20,7 @@ export default () => {
 	};
 
 	const handleClick = (e) => {
-		axios.get('/test').then((response) => {
+		axios.get('/api/test').then((response) => {
 			console.log('response received', response);
 		});
 	};
